@@ -1,0 +1,19 @@
+<h2>Adicionar Livro</h2>
+<div>
+    <label>Nome:
+        <input placeholder="Insira o nome" [(ngModel)]="request.nome">
+    </label>
+    <br>
+    <label>Categoria:
+        <input placeholder="Insira a categoria" [(ngModel)]="request.categoria">
+    </label>
+    <br>
+    <button (click)="save()">Gravar</button>
+</div>
+
+<br><br>
+<div *ngIf="response">
+    <label>Nome: {{response.nome}}</label><br>
+    <label>Categoria: {{response.categoria}}</label><br>
+    <label>Id: {{response.id}}</label>
+</div>

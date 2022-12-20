@@ -1,0 +1,12 @@
+<h2>Atualizar Livro</h2>
+<div >
+    <label>Nome:
+        <input placeholder="Insira o nome" [(ngModel)]="request.nome">
+    </label>
+    <br>
+    <label>Categoria:
+        <input placeholder="Insira a categoria" [(ngModel)]="request.categoria">
+    </label>
+    <br>
+    <button (click)="update()">Atualizar</button>
+</div>
