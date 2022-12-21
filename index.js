@@ -1,4 +1,4 @@
-var sqlite3 = require('sqlite3').verbose();
+/*var sqlite3 = require('sqlite3').verbose();
 var express = require('express');
 var http = require('http');
 var app = express();
@@ -67,4 +67,4 @@ app.get('/', function(req,res){
   });
   server.listen(4200,function(){ 
     console.log("Server listening on port: 4200");
-});
+});*/

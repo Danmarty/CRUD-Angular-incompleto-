@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { UpdateComponent } from './livros/update/update.component';
 import { RouterLink } from '@angular/router';
 import { DeleteLivroComponent } from './livros/delete-livro/delete-livro.component';
-
+import { LivroComponent } from './livros/livro.component';
 
 
 @NgModule({
@@ -23,6 +23,7 @@ import { DeleteLivroComponent } from './livros/delete-livro/delete-livro.compone
     CreateLivroComponent,
     UpdateComponent,
     DeleteLivroComponent,
+    LivroComponent,
     
   ],
   imports: [
@@ -33,7 +34,10 @@ import { DeleteLivroComponent } from './livros/delete-livro/delete-livro.compone
     NgIf,
     CommonModule,
     FormsModule,
-    RouterLink
+    RouterLink,
+    
+
+    
     
   ],
   providers: [],

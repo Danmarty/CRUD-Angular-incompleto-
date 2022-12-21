@@ -2,6 +2,7 @@ import { LivroService } from '../livro.service';
 import { RequestCreate, ResponseCreate } from '../livro.model';
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-create-user',
@@ -15,15 +16,17 @@ export class CreateLivroComponent implements OnInit{
     categoria: ''
   }
   response!: ResponseCreate;
-
+  
   constructor(private LivroService: LivroService){}
 
   ngOnInit(){}
 
   save(){
-    this.LivroService.createUser(this.request).subscribe(res =>{
+    this.LivroService.createLivro(this.request).subscribe(res =>{
     this.response = res;
+    console.log(res);
   });
   }
-
+  
 }
+

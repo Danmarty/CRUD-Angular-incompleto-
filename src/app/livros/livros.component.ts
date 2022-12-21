@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ResponseLivros } from './livro.model';
+import { Livro, ResponseLivros } from './livro.model';
 import { LivroService } from './livro.service';
 
 @Component({
@@ -9,13 +9,16 @@ import { LivroService } from './livro.service';
 })
 export class LivrosComponent implements OnInit {
 
-    responseLivros!: ResponseLivros 
+    responseLivros: ResponseLivros; 
+    
   
-    constructor(private livroService: LivroService){}
+    constructor(public livroService: LivroService){}
   
     ngOnInit() {
-      this.livroService.getLivros()
-      .subscribe(res => this.responseLivros = res)
+      this.livroService.getLivros().subscribe(res =>{
+         this.responseLivros = res;
+         console.log(this.responseLivros);
+      })
     }
 
 }

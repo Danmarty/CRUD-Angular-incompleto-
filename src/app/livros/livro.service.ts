@@ -8,16 +8,16 @@ import { ResponseLivro } from './livro.model';
   providedIn: 'root'
 })
 export class LivroService {
-  private url="https://reqres.in/api/users";
+  private url="http://localhost:3000/livro";
 
   constructor(private http: HttpClient) { }
 
   getLivros(): Observable<ResponseLivros>{
-    return this.http.get<ResponseLivros>(this.url);
+    return this.http.get<ResponseLivros>(this.url+"s");
 
 }
 
- createUser(request: RequestCreate): Observable<ResponseCreate>{
+ createLivro(request: RequestCreate): Observable<ResponseCreate>{
   return this.http.post<ResponseCreate>(this.url, request);
 
  }

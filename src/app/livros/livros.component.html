@@ -1,5 +1,4 @@
 <h1>Livros</h1>
-
 <table *ngIf="responseLivros">
     <thead>
         <td>Nome</td>
@@ -8,12 +7,13 @@
     </thead>
     <tbody>
         <tr *ngFor="let livro of responseLivros.data">
-            <td>{{livro.nome}}</td>
+            <td>{{livro.id}}</td>
             <td>{{livro.categoria}}</td>
             <td>
                 <a routerLink="/livros/update/{{livro.id}}">Editar </a>
                 <a routerLink="/livros/delete/{{livro.id}}"> Remover</a>
             </td>
         </tr>
+        <p>{{responseLivros.categoria}}</p>
     </tbody>
 </table>
