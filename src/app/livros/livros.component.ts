@@ -9,8 +9,8 @@ import { LivroService } from './livro.service';
 })
 export class LivrosComponent implements OnInit {
 
-    responseLivros: ResponseLivros; 
-    
+    responseLivros: Livro[]; 
+    totalLivros: number;
   
     constructor(public livroService: LivroService){}
   

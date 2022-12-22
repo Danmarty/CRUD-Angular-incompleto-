@@ -1,12 +1,21 @@
-import {Component} from '@angular/core';
+/*import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
+import { NgClass } from '@angular/common';
+
 
 /** @title Select with multiple selection */
-@Component({
+/*@Component({
   selector: 'select-multiple-example',
   templateUrl: 'select-multiple-example.component.html',
 })
-export class SelectMultipleExample {
-  toppings = new FormControl('');
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+export class SelectMultipleExample implements OnInit{
+  
+  tecnologias:any[];
+
+ngOnInit(){
+  this.tecnologias= this.dropdownService.getTecnologias();
+    
+  }
+  
 }
+*/

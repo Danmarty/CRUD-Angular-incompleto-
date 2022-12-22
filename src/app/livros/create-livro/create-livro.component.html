@@ -1,19 +1,23 @@
-<h2>Adicionar Livro</h2>
-<div>
-    <label>Nome:
-        <input placeholder="Insira o nome" [(ngModel)]="request.nome">
-    </label>
-    <br>
-    <label>Categoria:
-        <input placeholder="Insira a categoria" [(ngModel)]="request.categoria">
-    </label>
-    <br>
-    <button (click)="save()">Gravar</button>
-</div>
-
-<br><br>
-<div *ngIf="response">
-    <label>Nome: {{response.nome}}</label><br>
-    <label>Categoria: {{response.categoria}}</label><br>
-    <label>Id: {{response.id}}</label>
+<mat-toolbar>
+    <mat-toolbar-row style="font-size:1 5rem; height: 80px;">
+        <span>Adicionar livro</span>
+        <span class="example-spacer"></span>
+        <button mat-raised-button color="primary"><a routerLink="/livros/create">Adicionar livro</a></button>
+        <button mat-raised-button color="primary"><a routerLink="/livros">Lista de livros</a></button>
+    </mat-toolbar-row>
+</mat-toolbar>
+<div style="margin: 1%;">
+    <mat-card>
+        <mat-card-content style="font-size:1 5rem; height: 80px;">
+            <mat-form-field class="example-form-field">
+                <mat-label>Nome do livro</mat-label>
+                <input matInput type="text" [(ngModel)]="request.nome">
+            </mat-form-field>
+            <mat-form-field class="example-form-field">
+                <mat-label>Categoria</mat-label>
+                <input class="input" matInput type="text" [(ngModel)]="request.categoria">
+            </mat-form-field><br>
+            <button class="botao" mat-raised-button color="primary" (click)="save()">Gravar</button>
+        </mat-card-content>
+    </mat-card>
 </div>

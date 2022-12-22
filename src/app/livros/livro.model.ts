@@ -1,5 +1,3 @@
-import { Data } from "@angular/router";
-
 export interface Livro {
     id: number;
     nome: string;
@@ -7,11 +5,8 @@ export interface Livro {
 }
 
 export interface ResponseLivros {
-    data: Livro[];
-    livro: Data[]
-    id: number;
-    nome: string;
-    categoria: string;
+    Data: Livro[]
+    
 }
 
 export interface RequestCreate {
@@ -27,7 +22,9 @@ export interface ResponseCreate {
 }
 
 export interface ResponseLivro {
-    data:Livro
+    id:number;
+    nome: string;
+    categoria: string;
 }
 
 export interface RequestUpdate {

@@ -20,10 +20,6 @@ app.get('/livro', async function(req, res){
     res.json(livro);
 
 })
-app.delete('/livro', async function(req, res){
-    let livro = await deleteLivro(req.body.id);
-    res.json(livro);
-});
 app.post ('/livro',async function(req, res){
     /*insertLivro(req.body)
     res.json({
@@ -48,7 +44,10 @@ app.put ('/livro', function(req, res){
 }
 });
 
-
+app.delete('/livro', async function(req, res){
+    let livro = await deleteLivro(req.body.id);
+    res.json(livro);
+});
 app.listen(3000, ()=>console.log("Api rodando"))
 
 https.createServer({

@@ -4,6 +4,8 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 
+
+
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-livro.component.html',
@@ -16,7 +18,11 @@ export class CreateLivroComponent implements OnInit{
     categoria: ''
   }
   response!: ResponseCreate;
-  
+  nome: any;
+  categoria: any;
+  id: any;
+
+
   constructor(private LivroService: LivroService){}
 
   ngOnInit(){}
@@ -24,9 +30,13 @@ export class CreateLivroComponent implements OnInit{
   save(){
     this.LivroService.createLivro(this.request).subscribe(res =>{
     this.response = res;
-    console.log(res);
+    this.nome= res.nome;
+    this.categoria= res.categoria;
+    this.id= res.id;
+    
   });
   }
   
 }
+
 

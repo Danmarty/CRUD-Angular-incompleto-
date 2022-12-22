@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ResponseLivros, RequestCreate, ResponseCreate, RequestUpdate, ResponseUpdate } from './livro.model';
+import { ResponseLivros, RequestCreate, ResponseCreate, RequestUpdate, ResponseUpdate, Livro } from './livro.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ResponseLivro } from './livro.model';
@@ -12,8 +12,13 @@ export class LivroService {
 
   constructor(private http: HttpClient) { }
 
-  getLivros(): Observable<ResponseLivros>{
+/*getLivros(): Observable<ResponseLivros>{
     return this.http.get<ResponseLivros>(this.url+"s");
+    
+
+}*/
+getLivros(): Observable<Livro[]>{
+  return this.http.get<Livro[]>(this.url+"s");
 
 }
 
@@ -21,14 +26,19 @@ export class LivroService {
   return this.http.post<ResponseCreate>(this.url, request);
 
  }
+ /*tirar o id */
  getLivro(id: string): Observable<ResponseLivro>{
-  const _url=`${this.url}/${id}`;
+  const _url=`${this.url+"s"}`;
 
     return this.http.get<ResponseLivro>(_url);
  }
+ getLivrot(id:string): Observable<Livro[]>{
+  return this.http.get<Livro[]>(this.url+"s");
+
+}
 
  updateLivro(id:string, request: RequestUpdate): Observable<ResponseUpdate>{
-  const _url=`${this.url}/${id}`;
+  const _url=`${this.url+"s"}`;
 
   return this.http.put<ResponseUpdate>(_url, request);
  }
@@ -39,3 +49,4 @@ export class LivroService {
   return this.http.delete<any>(_url);
  }
 }
+
