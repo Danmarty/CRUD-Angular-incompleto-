@@ -1,0 +1,36 @@
+
+.example-spacer {
+    flex: 1 1 auto;
+    
+
+}
+.example-card{
+    margin-top: 10px;
+}
+a{
+    color: white;
+}
+button{
+    margin-left: 5px;
+    width: fit-content;
+    
+}
+.botao1{
+    position:absolute;
+    top:0;
+    right: 0;
+    left: 84%;
+    margin-right:10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    
+}
+.botao2{
+    position:absolute;
+    top:0;
+    right: 0;
+    margin-right:10px;
+    margin-left: 100px;
+    margin-top: 20px;
+    
+}
