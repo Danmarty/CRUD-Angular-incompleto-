@@ -26,6 +26,10 @@ getLivros(): Observable<Livro[]>{
   return this.http.post<ResponseCreate>(this.url, request);
 
  }
+ createLivro1(request: RequestCreate): Observable<ResponseCreate>{
+  return this.http.post<ResponseCreate>(this.url, request);
+
+ }
  /*tirar o id */
  getLivro(id: string): Observable<ResponseLivro>{
   const _url=`${this.url+"s"}`;
@@ -38,9 +42,10 @@ getLivros(): Observable<Livro[]>{
 }
 
  updateLivro(id:string, request: RequestUpdate): Observable<ResponseUpdate>{
-  const _url=`${this.url+"s"}`;
+  const _url=`${this.url}`;
 
-  return this.http.put<ResponseUpdate>(_url, request);
+  return this.http.put<ResponseUpdate>(this.url, request);
+  console.log(this.url)
  }
 
  deleteLivro(id:string): Observable<any>{

@@ -18,9 +18,12 @@
                 <mat-label>Nome do livro</mat-label>
                 <input matInput type="text" placeholder={{livro.nome}}>
             </mat-form-field>
-            <mat-form-field class="example-form-field">
+            <mat-form-field appearance="fill" class="example-form-field">
                 <mat-label>Categoria</mat-label>
-                <input matInput type="text" placeholder={{livro.categoria}}>
+                <mat-select [formControl]="categorias" multiple>
+                    <mat-option *ngFor="let categorias of categoriaList"
+                        [value]="categorias">{{categorias}}</mat-option>
+                </mat-select>
             </mat-form-field>
             <button class="botao" mat-raised-button color="primary" (click)="delete()">Confirmar?</button>
         </mat-card-content>

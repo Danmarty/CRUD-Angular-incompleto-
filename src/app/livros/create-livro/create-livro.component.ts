@@ -2,7 +2,7 @@ import { LivroService } from '../livro.service';
 import { RequestCreate, ResponseCreate } from '../livro.model';
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
 
 
 
@@ -12,6 +12,14 @@ import {FormControl} from '@angular/forms';
   styleUrls: ['./create-livro.component.css']
 })
 export class CreateLivroComponent implements OnInit{
+  
+  categorias = new FormControl('');
+  categoriaList: string[] = ['Ficção', 'Fantasia', 'Romance', 'Terror', 'Drama', 'Sci-fi'];
+
+  form=this.fb.group({
+    id:[{value:''}],
+    nome:['',Validators.required]
+  })
 
   request: RequestCreate ={
     nome: '',
@@ -23,7 +31,7 @@ export class CreateLivroComponent implements OnInit{
   id: any;
 
 
-  constructor(private LivroService: LivroService){}
+  constructor(private LivroService: LivroService, private fb:FormBuilder){}
 
   ngOnInit(){}
 

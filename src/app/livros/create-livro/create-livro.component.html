@@ -6,18 +6,29 @@
         <button mat-raised-button color="primary"><a routerLink="/livros">Lista de livros</a></button>
     </mat-toolbar-row>
 </mat-toolbar>
-<div style="margin: 1%;">
-    <mat-card>
-        <mat-card-content style="font-size:1 5rem; height: 80px;">
-            <mat-form-field class="example-form-field">
-                <mat-label>Nome do livro</mat-label>
-                <input matInput type="text" [(ngModel)]="request.nome">
-            </mat-form-field>
-            <mat-form-field class="example-form-field">
-                <mat-label>Categoria</mat-label>
-                <input class="input" matInput type="text" [(ngModel)]="request.categoria">
-            </mat-form-field><br>
-            <button class="botao" mat-raised-button color="primary" (click)="save()">Gravar</button>
-        </mat-card-content>
-    </mat-card>
-</div>
+<form [formGroup]="form">
+    <div style="margin: 1%;">
+        <mat-card>
+            <mat-card-content style="font-size:1 5rem; height: 80px;">
+                <mat-form-field class="example-form-field">
+                    <mat-label>Nome do livro</mat-label>
+                    <input matInput type="text" formControlName="request.nome">
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="example-form-field">
+                    <mat-label>Categoria</mat-label>
+                    <mat-select [formControl]="categorias" multiple>
+                        <mat-option *ngFor="let categorias of categoriaList"
+                            [value]="categorias">{{categorias}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button class="botao" mat-raised-button color="primary" (click)="save()">Gravar</button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+<!--
+</form>
+<mat-form-field class="example-form-field">
+    <mat-label>Categoria</mat-label>
+    <input class="input" matInput type="text" formControlName="request.categoria">
+</mat-form-field><br>-->
