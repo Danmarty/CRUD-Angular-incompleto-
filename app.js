@@ -21,11 +21,11 @@ app.get('/livro', async function(req, res){
 
 })
 app.post ('/livro',async function(req, res){
-    /*insertLivro(req.body)
+    insertLivro(req.body)
     res.json({
         "statucCode": 200
     })
-    */
+    
     let livro = await insertLivro(req.body);
     res.json(livro);
 

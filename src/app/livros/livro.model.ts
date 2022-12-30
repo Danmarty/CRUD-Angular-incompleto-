@@ -13,10 +13,15 @@ export interface RequestCreate {
     nome: string;
     categoria: string;
 }
+export interface Form {
+    nome: string;
+    categoria: string;
+}
 
 export interface ResponseCreate {
     nome: string;
     categoria: string;
+    categoriaList: string;
     id: string;
     createdAt: Date;
 }

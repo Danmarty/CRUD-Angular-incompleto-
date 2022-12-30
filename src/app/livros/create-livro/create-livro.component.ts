@@ -1,9 +1,8 @@
 import { LivroService } from '../livro.service';
-import { RequestCreate, ResponseCreate } from '../livro.model';
+import { Form, RequestCreate, ResponseCreate } from '../livro.model';
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import {FormBuilder, FormControl, Validators} from '@angular/forms';
-
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -13,35 +12,42 @@ import {FormBuilder, FormControl, Validators} from '@angular/forms';
 })
 export class CreateLivroComponent implements OnInit{
   
-  categorias = new FormControl('');
+  categoria = new FormControl('');
   categoriaList: string[] = ['Ficção', 'Fantasia', 'Romance', 'Terror', 'Drama', 'Sci-fi'];
 
   form=this.fb.group({
-    id:[{value:''}],
-    nome:['',Validators.required]
+    nome:['',Validators.required],
+    categoria:['',Validators.required]
   })
 
-  request: RequestCreate ={
+  request: Form ={
     nome: '',
     categoria: ''
   }
-  response!: ResponseCreate;
-  nome: any;
-  categoria: any;
+  
+  response: ResponseCreate;
+  nome: string;
   id: any;
 
-
   constructor(private LivroService: LivroService, private fb:FormBuilder){}
-
-  ngOnInit(){}
+  
+  ngOnInit(){
+    this.form = new FormGroup({
+      nome: new FormControl(),
+      categoria: new FormControl()
+   });
+  
+  }
 
   save(){
     this.LivroService.createLivro(this.request).subscribe(res =>{
-    this.response = res;
-    this.nome= res.nome;
-    this.categoria= res.categoria;
+    this.request = res;
+    this.request.nome= res.nome;
+    this.request.categoria= res.categoria;
     this.id= res.id;
-    
+    console.log(this.request);
+    console.log(res);
+    console.log(this.form);
   });
   }
   

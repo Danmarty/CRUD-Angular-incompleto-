@@ -26,10 +26,6 @@ getLivros(): Observable<Livro[]>{
   return this.http.post<ResponseCreate>(this.url, request);
 
  }
- createLivro1(request: RequestCreate): Observable<ResponseCreate>{
-  return this.http.post<ResponseCreate>(this.url, request);
-
- }
  /*tirar o id */
  getLivro(id: string): Observable<ResponseLivro>{
   const _url=`${this.url+"s"}`;
