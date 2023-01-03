@@ -1,6 +1,0 @@
-<div class="col-md-4" [ngClass]="aplicaCssErro('tecnologias')">
-  <label for="tecnologias" class="control-label">Tecnologias</label>
-  <select multiple class="form-control" id="tecnologias" formControlName="tecnologias">
-    <option *ngFor="let tecnologia of tecnologias" [value]="tecnologia.nome">{{ tecnologia.desc }}</option>
-  </select>
-</div>
