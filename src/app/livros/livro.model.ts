@@ -9,7 +9,7 @@ export interface ResponseLivros {
     
 }
 
-export interface RequestCreate {
+export interface LivroCriar {
     nome: string;
     categoria: string;
 }
@@ -26,7 +26,7 @@ export interface ResponseCreate {
     createdAt: Date;
 }
 
-export interface ResponseLivro {
+export interface LivroUpdate {
     id:number;
     nome: string;
     categoria: string;
@@ -40,5 +40,10 @@ export interface RequestUpdate {
 export interface ResponseUpdate {
     nome: string;
     categoria: string;
-    updatedAt: Date;
+    
+}
+export interface LivroDelete {
+    id:number;
+    nome: string;
+    categoria: string;
 }

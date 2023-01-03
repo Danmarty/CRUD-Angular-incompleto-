@@ -2,8 +2,8 @@
 import { LivroService } from './../../livros/livro.service';
 import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RequestUpdate } from '../livro.model';
-import { FormBuilder, Validators, FormControl} from '@angular/forms';
+import { LivroCriar, LivroUpdate, RequestUpdate } from '../livro.model';
+import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -13,34 +13,45 @@ import { FormBuilder, Validators, FormControl} from '@angular/forms';
 })
 export class UpdateComponent implements OnInit {
 
-  form=this.fb.group({
-    id:[{value:''}],
-    nome:['',Validators.required]
-  })
-  categorias = new FormControl('');
+  form:FormGroup;
   categoriaList: string[] = ['Ficção', 'Fantasia', 'Romance', 'Terror', 'Drama', 'Sci-fi'];
 
-  id: string;
-  request: RequestUpdate;
+  id: any;
+  request: LivroUpdate;
   constructor(private livroService: LivroService, private route: ActivatedRoute, private fb:FormBuilder){}
 
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.form=this.fb.group({
+    id:['',Validators.required],
+    nome:['',Validators.required],
+    categoria:['',Validators.required]
+  })
+    /*this.id = this.route.snapshot.paramMap.get('id');
     this.livroService.getLivro(this.id).subscribe(res =>{
       this.request={
-        nome: `${res.nome}`,
+        id:(this.id),
+        nome: `${this.id.nome}`,
         categoria: `${res.categoria}`,
         
         };
         console.log(this.request)
         console.log(this.id)
-        console.log(res)
+        console.log(this.route.snapshot.paramMap)
     });
   }
-  update(){
+  
+  update1(){
     this.livroService.updateLivro(this.id, this.request).subscribe(res =>{
       alert(`Atualizar: ${res.updatedAt}, Nome: ${res.nome}`);
-    })
+    })*/
   }
-
+  update(){
+    let livro:LivroUpdate={id:this.form.controls['id'].value,nome:this.form.controls['nome'].value, categoria:this.form.controls['categoria'].value}
+    this.livroService.updateLivro(this.id,livro).subscribe(res =>{
+    console.log(res);
+    console.log(this.id);
+    console.log(livro)
+  
+  });
+  }
 }

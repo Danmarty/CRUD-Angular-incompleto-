@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { ResponseLivros, RequestCreate, ResponseCreate, RequestUpdate, ResponseUpdate, Livro } from './livro.model';
+import { ResponseLivros, ResponseCreate, RequestUpdate, ResponseUpdate, Livro, LivroCriar, LivroDelete } from './livro.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ResponseLivro } from './livro.model';
+import { LivroUpdate } from './livro.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,30 +23,30 @@ getLivros(): Observable<Livro[]>{
 
 }
 
- createLivro(request: RequestCreate): Observable<ResponseCreate>{
-  return this.http.post<ResponseCreate>(this.url, request);
+ createLivro(Livro: LivroCriar): Observable<ResponseCreate>{
+  return this.http.post<ResponseCreate>(this.url, Livro);
 
  }
  /*tirar o id */
- getLivro(id: string): Observable<ResponseLivro>{
+ getLivro(id: string): Observable<LivroUpdate>{
   const _url=`${this.url+"s"}`;
 
-    return this.http.get<ResponseLivro>(_url);
+    return this.http.get<LivroUpdate>(_url);
  }
  getLivrot(id:string): Observable<Livro[]>{
   return this.http.get<Livro[]>(this.url+"s");
 
 }
 
- updateLivro(id:string, request: RequestUpdate): Observable<ResponseUpdate>{
+ updateLivro(id:string, Livro: LivroCriar): Observable<ResponseUpdate>{
   const _url=`${this.url}`;
 
-  return this.http.put<ResponseUpdate>(this.url, request);
+  return this.http.put<ResponseUpdate>(this.url, Livro);
   console.log(this.url)
  }
 
- deleteLivro(id:string): Observable<any>{
-  const _url=`${this.url}/${id}`;
+ deleteLivro(id:string,Livro: LivroCriar): Observable<ResponseUpdate>{
+  const _url=`${this.url}`;
 
   return this.http.delete<any>(_url);
  }
