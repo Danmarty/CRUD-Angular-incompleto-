@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LivroService } from '../livro.service';
 import { ActivatedRoute } from '@angular/router';
-import { Livro, LivroDelete, LivroUpdate } from '../livro.model';
+import { Livro, LivroDeletar, LivroDelete, LivroUpdate } from '../livro.model';
 import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 
@@ -13,20 +13,21 @@ import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/
 })
 export class DeleteLivroComponent implements OnInit{
 
-  form: FormGroup;
+  form:FormGroup;
   id: any;
   request: LivroDelete;
   categoriaList: string[] = ['Ficção', 'Fantasia', 'Romance', 'Terror', 'Drama', 'Sci-fi'];
 
 
+
   constructor(private livroService: LivroService, private route: ActivatedRoute, private fb:FormBuilder){}
 
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get(this.id);
+    /*this.id = this.route.snapshot.paramMap.get(this.id);
     this.livroService.getLivro(this.id).subscribe(res =>{
       console.log(res)
         
-      });
+      });*/
       this.form=this.fb.group({
         id:['',Validators.required],
         nome:['',Validators.required],
@@ -34,19 +35,13 @@ export class DeleteLivroComponent implements OnInit{
       })
     }
     delete(){
-      let livro:LivroDelete={id:this.form.controls['id'].value,nome:this.form.controls['nome'].value, categoria:this.form.controls['categoria'].value}
-      this.livroService.deleteLivro(this.id,livro).subscribe(res =>{
-      console.log(res);
-      console.log(this.id);
+      let livro:LivroDeletar={id:this.form.controls['id'].value}
+      console.log("teste");
       console.log(livro);
-    
+      this.livroService.deleteLivro(this.id).subscribe(res =>{
+      console.log(livro);
+      console.log(res);
     });
     }
-
-    /*delete1(){
-      this.livroService.deleteLivro(this.id,this.livro).subscribe(res=>{
-        alert('Removido com sucesso!');
-      })
-    }*/
     
 }

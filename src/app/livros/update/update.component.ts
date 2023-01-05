@@ -13,11 +13,13 @@ import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms'
 })
 export class UpdateComponent implements OnInit {
 
-  form:FormGroup;
-  categoriaList: string[] = ['Ficção', 'Fantasia', 'Romance', 'Terror', 'Drama', 'Sci-fi'];
-
+  form:FormGroup; 
   id: any;
   request: LivroUpdate;
+  categoriaList: string[] = ['Ficção', 'Fantasia', 'Romance', 'Terror', 'Drama', 'Sci-fi'];
+
+ 
+  
   constructor(private livroService: LivroService, private route: ActivatedRoute, private fb:FormBuilder){}
 
   ngOnInit() {
@@ -48,9 +50,6 @@ export class UpdateComponent implements OnInit {
   update(){
     let livro:LivroUpdate={id:this.form.controls['id'].value,nome:this.form.controls['nome'].value, categoria:this.form.controls['categoria'].value}
     this.livroService.updateLivro(this.id,livro).subscribe(res =>{
-    console.log(res);
-    console.log(this.id);
-    console.log(livro)
   
   });
   }

@@ -23,7 +23,7 @@ export class LivrosComponent implements OnInit {
     ngOnInit() {
       this.livroService.getLivros().subscribe(res =>{
          this.responseLivros = res;
-         console.log(this.responseLivros);
+         
       })
     }
 

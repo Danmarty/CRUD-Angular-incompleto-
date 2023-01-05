@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ResponseLivros, ResponseCreate, RequestUpdate, ResponseUpdate, Livro, LivroCriar, LivroDelete } from './livro.model';
+import { ResponseLivros, ResponseCreate, RequestUpdate, ResponseUpdate, Livro, LivroCriar, LivroDelete, LivroDeletar } from './livro.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LivroUpdate } from './livro.model';
@@ -33,22 +33,18 @@ getLivros(): Observable<Livro[]>{
 
     return this.http.get<LivroUpdate>(_url);
  }
- getLivrot(id:string): Observable<Livro[]>{
-  return this.http.get<Livro[]>(this.url+"s");
-
-}
 
  updateLivro(id:string, Livro: LivroCriar): Observable<ResponseUpdate>{
   const _url=`${this.url}`;
 
   return this.http.put<ResponseUpdate>(this.url, Livro);
-  console.log(this.url)
+ 
  }
 
- deleteLivro(id:string,Livro: LivroCriar): Observable<ResponseUpdate>{
+ deleteLivro(id:string): Observable<LivroDeletar>{
   const _url=`${this.url}`;
 
-  return this.http.delete<any>(_url);
+  return this.http.delete<LivroDeletar>(_url);
  }
 }
 

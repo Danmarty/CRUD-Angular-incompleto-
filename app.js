@@ -27,8 +27,7 @@ app.post ('/livro',async function(req, res){
     })
     
     let livro = await insertLivro(req.body);
-    res.json(livro);
-
+    
 })
 app.put ('/livro', function(req, res){
     if(req.body && !req.body.id){
@@ -40,13 +39,19 @@ app.put ('/livro', function(req, res){
         updateLivro(req.body)
     res.json({
         "statucCode": 200
+        
     })
+    console.log(req.body.id);
 }
 });
 
 app.delete('/livro', async function(req, res){
+    console.log("livro");
+    console.log(req.body.id);
     let livro = await deleteLivro(req.body.id);
-    res.json(livro);
+    res.json(req.body);
+    console.log(livro);
+    console.log(req.body)
 });
 app.listen(3000, ()=>console.log("Api rodando"))
 

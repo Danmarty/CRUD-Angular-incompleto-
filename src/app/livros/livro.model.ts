@@ -21,9 +21,7 @@ export interface Form {
 export interface ResponseCreate {
     nome: string;
     categoria: string;
-    categoriaList: string;
-    id: string;
-    createdAt: Date;
+    
 }
 
 export interface LivroUpdate {
@@ -38,12 +36,19 @@ export interface RequestUpdate {
 }
 
 export interface ResponseUpdate {
+    id:number;
     nome: string;
     categoria: string;
     
 }
 export interface LivroDelete {
     id:number;
-    nome: string;
-    categoria: string;
+    nome:string;
+    categoria:string;
+    
+}
+export interface LivroDeletar {
+    id:number;
+    
+    
 }

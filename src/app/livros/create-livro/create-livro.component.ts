@@ -18,11 +18,6 @@ export class CreateLivroComponent implements OnInit{
 
   form: FormGroup;
 
-  request: Form ={
-    nome: '',
-    categoria: ''
-  }
-  
   response: ResponseCreate;
   nome: string;
   id: any;
@@ -41,8 +36,7 @@ export class CreateLivroComponent implements OnInit{
   save(){
     let livro:LivroCriar={nome:this.form.controls['nome'].value, categoria:this.form.controls['categoria'].value}
     this.LivroService.createLivro(livro).subscribe(res =>{
-    console.log(res);
-    console.log(livro)
+
   
   });
   }

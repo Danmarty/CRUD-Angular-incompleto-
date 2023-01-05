@@ -12,7 +12,7 @@
         <mat-card-content style="font-size:1 5rem; height: 80px;">
             <mat-form-field class="example-form-field">
                 <mat-label>Id do livro</mat-label>
-                <input matInput type="text" formControlName="id" placeholder={{this.id}}>
+                <input matInput type="text" formControlName="id" [value]="id" placeholder={{this.id}}>
             </mat-form-field>
             <mat-form-field class="example-form-field">
                 <mat-label>Nome do livro</mat-label>
